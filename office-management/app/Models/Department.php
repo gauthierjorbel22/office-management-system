@@ -11,4 +11,6 @@ class Department extends Model
     protected $fillable = [
         'name'
     ];
+    protected $table = 'Department';
+    public $timestamps = false; //to remove the required created at and updated at 
 }

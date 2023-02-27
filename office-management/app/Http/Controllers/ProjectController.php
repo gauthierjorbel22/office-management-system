@@ -1,17 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Manager;
+
+use App\Models\Project;
 use Illuminate\Http\Request;
 
-class ManagerController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Manager::all();
+        return Project::all();
     }
 
     /**
@@ -20,11 +21,10 @@ class ManagerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => "required|string",
-            'surname'=>"required|string",
-            'department_id'=>"required|integer"
+            'name' => 'required|integer',
+            'employee_id' => "required|string"
         ]);
-        return Manager::create($request->all());
+        return Project::create($request->all());
     }
 
     /**

@@ -9,6 +9,9 @@ class Project extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name'
+        'name',
+        'employee_id'
     ];
+    protected $table = 'Project';
+    public $timestamps = false; //to remove the required created at and updated at 
 }

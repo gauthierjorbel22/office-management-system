@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('surname');
             $table->string('city');
             $table->string('title');
-            $table->decimal('salary', 5, 2);
+            $table->integer('salary');
             $table->unsignedBigInteger('department_id');
             $table->foreign('department_id')->references('id')->on('department');
         });

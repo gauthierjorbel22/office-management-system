@@ -10,6 +10,9 @@ class Manager extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'surname'
+        'surname',
+        'department_id'
     ];
+    protected $table = 'Manager';
+    public $timestamps = false; //to remove the required created at and updated at 
 }

@@ -9,9 +9,14 @@ class Employee extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'manager_id',
         'name',
         'surname',
+        'city',
         'title',
-        'salary'
+        'salary',
+        'department_id'
     ];
+    protected $table = 'Employee';
+    public $timestamps = false; //to remove the required created at and updated at 
 }

@@ -20,7 +20,10 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => "required|string"
+        ]);
+        return Department::create($request->all());
     }
 
     /**
