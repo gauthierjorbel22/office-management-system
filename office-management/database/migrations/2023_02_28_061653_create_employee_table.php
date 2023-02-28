@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('city');
             $table->string('title');
             $table->integer('salary');
+            $table->unsignedBigInteger('project_id');
+            $table->foreign('project_id')->references('id')->on('project');
             $table->unsignedBigInteger('department_id');
             $table->foreign('department_id')->references('id')->on('department');
         });

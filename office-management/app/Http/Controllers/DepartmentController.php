@@ -31,7 +31,7 @@ class DepartmentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return Department::find($id);
     }
 
     /**

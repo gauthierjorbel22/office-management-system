@@ -27,6 +27,7 @@ class EmployeeController extends Controller
             'city' => 'required|string',
             'title' => 'required|string',
             'salary' => 'required|integer',
+            'project_id'=>'integer',
             'department_id' => "required|integer"
         ]);
         return Employee::create($request->all());
@@ -37,7 +38,7 @@ class EmployeeController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return Employee::find($id);
     }
 
     /**
