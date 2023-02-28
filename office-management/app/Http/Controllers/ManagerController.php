@@ -32,7 +32,7 @@ class ManagerController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return Manager::find($id);
     }
 
     /**

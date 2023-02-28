@@ -21,8 +21,8 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|integer',
-            'employee_id' => "required|string"
+            'name' => 'required|string',
+            'description' => "required|string"
         ]);
         return Project::create($request->all());
     }
@@ -32,7 +32,7 @@ class ProjectController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return Project::find($id);
     }
 
     /**

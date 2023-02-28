@@ -15,6 +15,7 @@ class Employee extends Model
         'city',
         'title',
         'salary',
+        'project_id',
         'department_id'
     ];
     protected $table = 'Employee';
