@@ -40,7 +40,9 @@ class ProjectController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $project = Project::find($id);
+        $project->update($request->all());
+        return $project;
     }
 
     /**
@@ -48,6 +50,6 @@ class ProjectController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return Project::destroy($id);
     }
 }

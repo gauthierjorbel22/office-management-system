@@ -36,6 +36,18 @@ Route::get('/managers/{id}',[ManagerController::class,'show']);
 Route::get('/employees/{id}',[EmployeeController::class,'show']);
 Route::get('/projects/{id}',[ProjectController::class,'show']);
 
+// update data
+Route::put('/departments/{id}',[DepartmentController::class,'update']);
+Route::put('/managers/{id}',[ManagerController::class,'update']);
+Route::put('/employees/{id}',[EmployeeController::class,'update']);
+Route::put('/projects/{id}',[ProjectController::class,'update']);
+
+// Delete 
+Route::delete('/departments/{id}',[DepartmentController::class,'destroy']);
+Route::delete('/managers/{id}',[ManagerController::class,'destroy']);
+Route::delete('/employees/{id}',[EmployeeController::class,'destroy']);
+Route::delete('/projects/{id}',[ProjectController::class,'destroy']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

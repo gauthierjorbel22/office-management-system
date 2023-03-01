@@ -39,7 +39,9 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $department = Department::find($id);
+        $department->update($request->all());
+        return $department;
     }
 
     /**
@@ -47,6 +49,6 @@ class DepartmentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return Department::destroy($id);
     }
 }
