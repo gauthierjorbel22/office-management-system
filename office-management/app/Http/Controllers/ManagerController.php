@@ -40,7 +40,9 @@ class ManagerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $manager = Manager::find($id);
+        $manager->update($request->all());
+        return $manager;
     }
 
     /**
@@ -48,6 +50,6 @@ class ManagerController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return Manager::destroy($id);
     }
 }
