@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeeController;
@@ -7,7 +6,6 @@ use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,24 +13,21 @@ use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
+| routes are loaded by the RouteServiceProvider within a group which
+| is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-
-// public routes
-Route::post('/login',[AuthController::class,'login']);
+// public routes 
+Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
-// get request
-
-// Protected routes
+Route::get('/departments', [DepartmentController::class, 'index']);
+// get request 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::get('/departments', [DepartmentController::class, 'index']);
+    // Route::get('/departments', [DepartmentController::class, 'index']);
     Route::get('/managers', [ManagerController::class, 'index']);
     Route::get('/employees', [EmployeeController::class, 'index']);
     Route::get('/projects', [EmployeeController::class, 'index']);
-    
+
     // find one article 
     Route::get('/departments/{id}', [DepartmentController::class, 'show']);
     Route::get('/managers/{id}', [ManagerController::class, 'show']);
@@ -58,6 +53,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::delete('/projects/{id}', [ProjectController::class, 'destroy']);
 });
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
